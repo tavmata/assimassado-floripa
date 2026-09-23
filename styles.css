@@ -643,13 +643,16 @@ button {
 }
 
 .item-badge {
-  position: absolute;
-  top: 16px;
-  right: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
   font-size: 11px;
   font-weight: 800;
+  letter-spacing: 0.5px;
   padding: 4px 10px;
   border-radius: var(--radius-full);
+  margin-bottom: 12px;
 }
 
 .badge-amber {
@@ -668,8 +671,8 @@ button {
 }
 
 .item-header {
-  margin-bottom: 12px;
-  padding-right: 70px;
+  margin-bottom: 10px;
+  padding-right: 0;
 }
 
 .item-name {
