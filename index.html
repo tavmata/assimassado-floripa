@@ -94,7 +94,32 @@
     <div class="container header-inner">
       <!-- Brand Logo -->
       <a href="#" class="brand-wrap" aria-label="Assim Assado - Início">
-        <img src="images/logo.svg" alt="Assim Assado Padaria e Café Logo" class="brand-logo-img">
+        <svg class="brand-logo-svg" viewBox="0 0 320 80" width="210" height="52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="navAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b"/>
+              <stop offset="100%" stop-color="#d97706"/>
+            </linearGradient>
+            <linearGradient id="navTerracotta" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ea580c"/>
+              <stop offset="100%" stop-color="#c2410c"/>
+            </linearGradient>
+          </defs>
+          <g transform="translate(10, 10)">
+            <path class="logo-steam-1" d="M22 6 C20 12, 26 16, 23 22" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" opacity="0.95"/>
+            <path class="logo-steam-2" d="M30 4 C28 11, 34 15, 31 22" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round" opacity="0.95"/>
+            <path class="logo-steam-3" d="M38 7 C36 13, 42 17, 39 23" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" opacity="0.95"/>
+            <path d="M12 24 L48 24 C48 42, 42 50, 30 50 C18 50, 12 42, 12 24 Z" fill="#1c1917" stroke="url(#navAmber)" stroke-width="2"/>
+            <path d="M47 28 C56 28, 56 42, 46 44" fill="none" stroke="url(#navAmber)" stroke-width="3" stroke-linecap="round"/>
+            <path d="M8 53 C18 57, 42 57, 52 53" fill="none" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+          </g>
+          <g transform="translate(80, 14)">
+            <text x="0" y="28" font-family="'Fraunces', Georgia, serif" font-size="28" font-weight="900" fill="#1c1917" letter-spacing="-0.5">Assim</text>
+            <text x="84" y="28" font-family="'Fraunces', Georgia, serif" font-size="28" font-weight="900" fill="url(#navTerracotta)" letter-spacing="-0.5">Assado</text>
+            <text x="1" y="44" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="700" fill="#78716c" letter-spacing="1.5">PADARIA • CAFÉ • LANCHES</text>
+            <text x="160" y="44" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="9" font-weight="800" fill="#d97706" letter-spacing="0.5">TRINDADE (UFSC)</text>
+          </g>
+        </svg>
       </a>
 
       <!-- Desktop Navigation Links -->
@@ -146,6 +171,29 @@
             <i class="fa-solid fa-calculator"></i>
             <span>MONTE SEU COMBO</span>
           </a>
+        </div>
+
+        <!-- Steaming Coffee Warmness Widget -->
+        <div class="hero-coffee-steamer" aria-label="Café quentinho passado na hora">
+          <div class="steamer-visual">
+            <div class="steam-vapors" aria-hidden="true">
+              <span class="steam-wisp wisp-1"></span>
+              <span class="steam-wisp wisp-2"></span>
+              <span class="steam-wisp wisp-3"></span>
+              <span class="steam-wisp wisp-4"></span>
+            </div>
+            <div class="steamer-cup-icon">
+              <i class="fa-solid fa-mug-hot"></i>
+            </div>
+          </div>
+          <div class="steamer-details">
+            <div class="steamer-badge">
+              <span class="pulse-steam-dot"></span>
+              <span>FRESCO & QUENTINHO</span>
+            </div>
+            <strong class="steamer-title">Aquele Cafezinho pra Acordar</strong>
+            <p class="steamer-subtitle">Passado na hora • Grãos tostados na medida • Expresso encorpado</p>
+          </div>
         </div>
 
         <div class="hero-trust-bar">
@@ -212,7 +260,12 @@
       </div>
 
       <div class="highlight-card">
-        <div class="highlight-icon">
+        <div class="highlight-icon highlight-coffee">
+          <div class="mini-steam-vapors" aria-hidden="true">
+            <span class="steam-wisp wisp-1"></span>
+            <span class="steam-wisp wisp-2"></span>
+            <span class="steam-wisp wisp-3"></span>
+          </div>
           <i class="fa-solid fa-mug-hot"></i>
         </div>
         <div>
@@ -392,8 +445,15 @@
         </div>
 
         <!-- Item 5: Café Expresso & Pingado -->
-        <div class="menu-item-card" data-category="cafe">
-          <span class="item-badge badge-amber">PRA ACORDAR</span>
+        <div class="menu-item-card featured-warm-item" data-category="cafe">
+          <div class="item-warm-indicator">
+            <div class="mini-steam-vapors" aria-hidden="true">
+              <span class="steam-wisp wisp-1"></span>
+              <span class="steam-wisp wisp-2"></span>
+              <span class="steam-wisp wisp-3"></span>
+            </div>
+            <span class="item-badge badge-amber"><i class="fa-solid fa-mug-hot"></i> PRA ACORDAR • QUENTINHO</span>
+          </div>
           <div>
             <div class="item-header">
               <h3 class="item-name">Café Passado & Pingado</h3>
@@ -666,12 +726,12 @@
               <span>Escolha a Bebida:</span>
             </h3>
             <div class="combo-options-grid">
-              <button class="combo-opt active" data-name="Café com Leite (Pingado)" data-price="6.00">
-                <span class="opt-name">Café Pingado</span>
+              <button class="combo-opt active opt-coffee" data-name="Café com Leite (Pingado)" data-price="6.00">
+                <span class="opt-name"><i class="fa-solid fa-mug-hot"></i> Café Pingado</span>
                 <span class="opt-price">R$ 6,00</span>
               </button>
-              <button class="combo-opt" data-name="Café Expresso Puro" data-price="5.00">
-                <span class="opt-name">Café Expresso</span>
+              <button class="combo-opt opt-coffee" data-name="Café Expresso Puro" data-price="5.00">
+                <span class="opt-name"><i class="fa-solid fa-mug-hot"></i> Café Expresso</span>
                 <span class="opt-price">R$ 5,00</span>
               </button>
               <button class="combo-opt" data-name="Suco Natural de Laranja (400ml)" data-price="9.00">

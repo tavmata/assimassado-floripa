@@ -1434,3 +1434,347 @@ button {
     display: none;
   }
 }
+
+
+/* ==========================================================================
+   Coffee Warmness & Steam Animations System
+   Authentic thermal convection, curling wisps, and cozy café warmth
+   ========================================================================== */
+
+/* Keyframe for fluid rising and dispersing steam plumes */
+@keyframes steamVaporRise {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.5, 0.6) rotate(0deg) skewX(0deg);
+  }
+  16% {
+    opacity: 0.85;
+    transform: translateY(-8px) scale(0.85, 0.95) rotate(4deg) skewX(3deg);
+  }
+  45% {
+    opacity: 0.72;
+    transform: translateY(-24px) scale(1.15, 1.25) rotate(-5deg) skewX(-4deg);
+  }
+  75% {
+    opacity: 0.32;
+    transform: translateY(-42px) scale(1.45, 1.5) rotate(6deg) skewX(5deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-60px) scale(1.75, 1.8) rotate(-8deg) skewX(-6deg);
+  }
+}
+
+/* Micro keyframe for smaller steam wisps (cards, badges, icons) */
+@keyframes steamVaporMicro {
+  0% {
+    opacity: 0;
+    transform: translateY(4px) scale(0.6) rotate(0deg);
+  }
+  20% {
+    opacity: 0.8;
+    transform: translateY(-5px) scale(0.9) rotate(3deg);
+  }
+  50% {
+    opacity: 0.65;
+    transform: translateY(-14px) scale(1.15) rotate(-3deg);
+  }
+  75% {
+    opacity: 0.25;
+    transform: translateY(-24px) scale(1.35) rotate(4deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-34px) scale(1.55) rotate(-5deg);
+  }
+}
+
+/* Keyframe for warm pulse glow */
+@keyframes steamWarmGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(217, 119, 6, 0);
+  }
+}
+
+/* Keyframe for steam cup gentle breathe */
+@keyframes cupWarmBreath {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1.5px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Hero Coffee Steamer Widget
+   -------------------------------------------------------------------------- */
+.hero-coffee-steamer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(135deg, #ffffff 0%, var(--amber-soft) 100%);
+  border: 1px solid rgba(217, 119, 6, 0.28);
+  border-radius: var(--radius-lg);
+  padding: 14px 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 18px -2px rgba(217, 119, 6, 0.09);
+  position: relative;
+  overflow: visible;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.hero-coffee-steamer:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px -4px rgba(217, 119, 6, 0.16);
+  border-color: rgba(217, 119, 6, 0.45);
+}
+
+.steamer-visual {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--espresso-dark), #2d2621);
+  border-radius: 50%;
+  color: var(--amber-light);
+  font-size: 22px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(28, 25, 23, 0.2);
+  animation: cupWarmBreath 3.5s ease-in-out infinite;
+}
+
+.steamer-cup-icon {
+  position: relative;
+  z-index: 2;
+  color: #fef3c7;
+}
+
+/* Steam Vapors Container */
+.steam-vapors {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 46px;
+  height: 56px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.steam-wisp {
+  position: absolute;
+  bottom: 0;
+  border-radius: 50% 50% 35% 35% / 70% 70% 30% 30%;
+  background: radial-gradient(ellipse at 50% 100%, rgba(245, 158, 11, 0.5) 0%, rgba(254, 243, 199, 0.85) 35%, rgba(255, 255, 255, 0.5) 70%, transparent 100%);
+  filter: blur(2px);
+  opacity: 0;
+  transform-origin: center bottom;
+  animation: steamVaporRise infinite ease-out;
+}
+
+.wisp-1 {
+  left: 14%;
+  width: 10px;
+  height: 36px;
+  animation-duration: 2.8s;
+  animation-delay: 0s;
+}
+
+.wisp-2 {
+  left: 36%;
+  width: 13px;
+  height: 44px;
+  animation-duration: 3.4s;
+  animation-delay: 0.65s;
+}
+
+.wisp-3 {
+  left: 56%;
+  width: 11px;
+  height: 38px;
+  animation-duration: 2.9s;
+  animation-delay: 1.35s;
+}
+
+.wisp-4 {
+  left: 74%;
+  width: 9px;
+  height: 30px;
+  animation-duration: 2.5s;
+  animation-delay: 2.05s;
+}
+
+.steamer-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.steamer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--amber-dark);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.pulse-steam-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--amber-primary);
+  animation: steamWarmGlow 2s infinite;
+}
+
+.steamer-title {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--espresso-dark);
+  line-height: 1.25;
+}
+
+.steamer-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   Mini Steam Wisps (Highlights Bar & Menu Items)
+   -------------------------------------------------------------------------- */
+.highlight-icon.highlight-coffee {
+  position: relative;
+  overflow: visible;
+}
+
+.mini-steam-vapors {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 36px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.mini-steam-vapors .steam-wisp {
+  filter: blur(1.5px);
+  animation-name: steamVaporMicro;
+}
+
+.mini-steam-vapors .wisp-1 {
+  left: 18%;
+  width: 7px;
+  height: 22px;
+  animation-duration: 2.4s;
+  animation-delay: 0s;
+}
+
+.mini-steam-vapors .wisp-2 {
+  left: 46%;
+  width: 9px;
+  height: 28px;
+  animation-duration: 3.1s;
+  animation-delay: 0.65s;
+}
+
+.mini-steam-vapors .wisp-3 {
+  left: 70%;
+  width: 6px;
+  height: 20px;
+  animation-duration: 2.6s;
+  animation-delay: 1.35s;
+}
+
+/* Menu Item: Café Passado & Pingado */
+.menu-item-card.featured-warm-item {
+  border: 2px solid rgba(217, 119, 6, 0.35);
+  background: linear-gradient(180deg, #ffffff 0%, var(--amber-soft) 100%);
+  position: relative;
+  overflow: visible;
+}
+
+.item-warm-indicator {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.item-warm-indicator .mini-steam-vapors {
+  top: -16px;
+  left: 14px;
+}
+
+/* Combo Builder Coffee Option Warmness */
+.combo-opt.opt-coffee {
+  position: relative;
+  overflow: visible;
+}
+
+.combo-opt.opt-coffee:hover,
+.combo-opt.opt-coffee.active {
+  border-color: var(--amber-primary);
+  background: var(--amber-soft);
+}
+
+.combo-opt.opt-coffee.active::after {
+  content: '♨';
+  position: absolute;
+  top: -8px;
+  right: -4px;
+  background: var(--amber-primary);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 900;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(217, 119, 6, 0.4);
+  animation: cupWarmBreath 2s infinite ease-in-out;
+}
+
+/* Brand Wrap subtle logo interaction */
+.brand-wrap:hover .brand-logo-img {
+  transform: scale(1.02);
+  transition: transform var(--transition-smooth);
+}
+
+
+@media (max-width: 768px) {
+  .brand-logo-svg {
+    width: 170px;
+    height: auto;
+  }
+  .hero-coffee-steamer {
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    gap: 12px;
+  }
+  .steamer-visual {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+  .steamer-title {
+    font-size: 15px;
+  }
+  .steamer-subtitle {
+    font-size: 12px;
+  }
+}
